@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.hrm.baidusdk.customize.floatbutton.DragFloatActionButton
+        android:id="@+id/floatButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="100dp"
+        android:background="@color/colorAccent"
+        android:clickable="true"
+        android:focusable="true"
+        tools:ignore="MissingConstraints,RtlSymmetry" />
+
+    <com.hrm.baidusdk.customize.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp"
+        app:banner_auto_play="true"
+        app:banner_default_image="@drawable/no_banner"
+        app:banner_expose_width="20dp"
+        app:banner_interval_time="3000"
+        app:banner_multi_anim="ScaleIn"
+        app:banner_page_spacing="14dp"
+        app:banner_show_indicator="true"
+        app:banner_show_model="MZ_EFFECT" />
+
+</RelativeLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.hrm.baidusdk.customize.floatbutton.DragFloatActionButton
+        android:id="@+id/query_question_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="100dp"
+        android:background="@color/colorAccent"
+        android:clickable="true"
+        android:focusable="true"
+        tools:ignore="RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入查询问题的编号" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true" />
+
+    <Button
+        android:id="@+id/previous_picture_button"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/image"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp"
+        android:text="前一张" />
+
+
+    <Button
+        android:id="@+id/next_picture_button"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/image"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/previous_picture_button"
+        android:layout_toRightOf="@id/previous_picture_button"
+        android:text="下一张" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/previous_picture_button"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:text="清除缓存" />
+
+    <Button
+        android:id="@+id/common_question_button"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/previous_picture_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_toEndOf="@id/clearButton"
+        android:layout_toRightOf="@id/clearButton"
+        android:text="常用编号" />
+
+</RelativeLayout>
