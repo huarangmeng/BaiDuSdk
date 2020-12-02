@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ import com.baidu.mapapi.search.poi.PoiSearch;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.hrm.baidusdk.activity.CrashActivity;
 import com.hrm.baidusdk.customize.floatbutton.DragFloatActionButton;
 import com.hrm.baidusdk.customize.banner.Banner;
 import com.hrm.baidusdk.customize.banner.loader.BannerEntry;
@@ -76,28 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
-//        bannerEntries.add(new BannerItem("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565154160894&di=a177dc95e640d1c9564000ba8682725d&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F02%2F72%2Fs_1198_e160f1f6a2a449109f20536ad2100ae0.jpg",null));
-//        bannerEntries.add(new BannerItem("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565154160894&di=527d9758d2e2518ad7e0b52236871665&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Fback_pic%2F00%2F03%2F20%2F58561dc0b9c8bd7.jpg",null));
-//        bannerEntries.add(new BannerItem("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1606671670924&di=de0d442dfdc7a320608d3176c87da235&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn20200226ac%2F350%2Fw690h460%2F20200226%2F5bfd-ipzreiw1736185.jpg",null));
-//        bannerEntries.add(new BannerItem("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565154160895&di=791b5647e6f58fc49ba134a09a4fc77a&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F04%2F95%2F44%2F605925c4ae73de4.jpg",null));
-        ThreadTask.getInstance().executorNetThread(new Runnable() {
-            @Override
-            public void run() {
-                HttpClientUtils httpClientUtils = new HttpClientUtils();
-                List<String> urls = httpClientUtils.getImageUrl();
-                for (int i = 0; i < Math.min(urls.size(), 5); i++) {
-                    bannerEntries.add(new BannerItem(urls.get(i), null));
-                }
-                MainHandler.get(new Runnable() {
-                    @Override
-                    public void run() {
-                        initBanner();
-                    }
-                });
-            }
-        });
-
-
+        Log.d(TAG, Environment.getExternalStorageDirectory().getPath());
     }
 
     private void initBanner() {
@@ -140,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
     DragFloatButtonClickListener dragFloatButtonClickListener = new DragFloatButtonClickListener() {
         @Override
         public void onClick() {
-            Intent intent = new Intent(MainActivity.this, ViewZhiHuAnswerPicture.class);
+            Intent intent = new Intent(MainActivity.this, CrashActivity.class);
             startActivity(intent);
         }
 

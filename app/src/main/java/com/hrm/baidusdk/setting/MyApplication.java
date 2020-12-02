@@ -6,6 +6,7 @@ import android.os.Handler;
 
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
+import com.hrm.baidusdk.util.CrashHandler;
 
 /**
  * @author: Hrm
@@ -20,6 +21,8 @@ public class MyApplication extends Application {
 
     private static int mMainThreadId;
 
+    private static String mAppName;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -28,9 +31,15 @@ public class MyApplication extends Application {
 
         mContext = getApplicationContext();
 
+        mAppName = getApplicationContext().getPackageName();
+
         mHandler = new Handler();
 
         mMainThreadId = android.os.Process.myTid();
+
+        //为应用设置异常处理
+        CrashHandler crashHandler = CrashHandler.getInstance();
+        crashHandler.init(this);
     }
 
     public Context getContext() {
@@ -43,5 +52,9 @@ public class MyApplication extends Application {
 
     public static int getMainThreadId() {
         return mMainThreadId;
+    }
+
+    public static String getAppName(){
+        return mAppName;
     }
 }
